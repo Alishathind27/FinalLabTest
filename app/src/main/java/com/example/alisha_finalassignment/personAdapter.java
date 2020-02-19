@@ -118,8 +118,8 @@ public class personAdapter extends ArrayAdapter {
             public void onClick(View v) {
                 String firstname = E_FName.getText().toString().trim();
                 String lastname = E_LName.getText().toString().trim();
-                String contact = E_LName.getText().toString().trim();
-                String add = E_LName.getText().toString().trim();
+                String contact = E_phone.getText().toString().trim();
+                String add = E_address.getText().toString().trim();
 
                 if (firstname.isEmpty()) {
                     E_FName.setError("Name field is mandatory!");

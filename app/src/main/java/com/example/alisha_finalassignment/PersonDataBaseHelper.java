@@ -75,7 +75,7 @@ public class PersonDataBaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_PHONE_NUMBER, String.valueOf(phone_no));
         cv.put(COLUMN_ADDRESS, u_address);
 
-        return sqLiteDatabase.update(TABLE_NAME,cv,COLUMN_ID + "= ?", new String[]{String.valueOf(id)}) > 0;
+        return sqLiteDatabase.update(TABLE_NAME,cv,COLUMN_ID + "=?", new String[]{String.valueOf(id)}) > 0;
     }
 
     boolean deletePerson(int id){
