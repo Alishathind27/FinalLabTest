@@ -70,8 +70,8 @@ public class Person_Activity extends AppCompatActivity {
                         cursor.getInt(0),
                         cursor.getString(1),
                         cursor.getString(2),
-                        cursor.getString(3),
-                        cursor.getInt(4)
+                        cursor.getInt(3),
+                        cursor.getString(4)
                 ));
             }while (cursor.moveToNext());
             cursor.close();

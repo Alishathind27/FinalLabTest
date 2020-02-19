@@ -6,12 +6,12 @@ public class Person {
     String fName, lName, address;
     int phone_number;
 
-    public Person(int id, String fName, String lName, String address, int phone_number) {
+    public Person(int id, String fName, String lName, int phone_number,String address) {
         this.id = id;
         this.fName = fName;
         this.lName = lName;
-        this.address = address;
         this.phone_number = phone_number;
+        this.address = address;
     }
 
     public int getId(){
@@ -25,11 +25,11 @@ public class Person {
         return lName;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
     public int getPhone_number() {
         return phone_number;
+    }
+
+    public String getAddress() {
+        return address;
     }
 }

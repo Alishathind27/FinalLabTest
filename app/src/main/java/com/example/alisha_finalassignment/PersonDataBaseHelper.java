@@ -44,18 +44,21 @@ public class PersonDataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        String sql = "DROP TABLE IF EXISTS " + TABLE_NAME + ";";
+        db.execSQL(sql);
+        onCreate(db);
     }
 
 
-    boolean addPerson(String first_name, String last_name, int phone_no, String u_address ){
+    boolean addPerson(String firstname, String lastname, int contact, String add){
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 
         ContentValues cv = new ContentValues();
 
-        cv.put(COLUMN_FNAME, first_name);
-        cv.put(COLUMN_LNAME, last_name);
-        cv.put(COLUMN_PHONE_NUMBER, String.valueOf(phone_no));
-        cv.put(COLUMN_ADDRESS, u_address);
+        cv.put(COLUMN_FNAME, firstname);
+        cv.put(COLUMN_LNAME, lastname);
+        cv.put(COLUMN_PHONE_NUMBER, String.valueOf(contact));
+        cv.put(COLUMN_ADDRESS, add);
 
         return  sqLiteDatabase.insert(TABLE_NAME,null,cv) != -1;
     }
@@ -66,14 +69,14 @@ public class PersonDataBaseHelper extends SQLiteOpenHelper {
 
     }
 
-    boolean updatePerson(int id, String first_name, String last_name, int phone_no, String u_address){
+    boolean updatePerson(int id, String firstname, String lastname, int contact, String add){
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 
         ContentValues cv = new ContentValues();
-        cv.put(COLUMN_FNAME, first_name);
-        cv.put(COLUMN_LNAME, last_name);
-        cv.put(COLUMN_PHONE_NUMBER, String.valueOf(phone_no));
-        cv.put(COLUMN_ADDRESS, u_address);
+        cv.put(COLUMN_FNAME, firstname);
+        cv.put(COLUMN_LNAME, lastname);
+        cv.put(COLUMN_PHONE_NUMBER, String.valueOf(contact));
+        cv.put(COLUMN_ADDRESS, add);
 
         return sqLiteDatabase.update(TABLE_NAME,cv,COLUMN_ID + "=?", new String[]{String.valueOf(id)}) > 0;
     }
